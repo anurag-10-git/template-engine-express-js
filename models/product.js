@@ -2,7 +2,6 @@ const fs = require('fs');
 const path= require('path');
 const routeDir = require('../util/path');
 
-
 const p = path.join(routeDir,'data','products.json');
 
 const getProductFromFile = (cb) => {
@@ -13,12 +12,15 @@ const getProductFromFile = (cb) => {
      }
      cb(JSON.parse(fileContent));
    })
+
 }
 
-
 module.exports = class Product {
-    constructor(title) {
+    constructor(title, imageUrl, description, price) {
        this.title = title;
+       this.imageUrl = imageUrl;
+       this.description = description;
+       this.price= price;
     }
    
     save() {
